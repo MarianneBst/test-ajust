@@ -1,0 +1,23 @@
+<!-- FORM  -->
+<form [formGroup]="gaugeSettingForm">
+    <label>Nombre d'incrément</label>
+    <input type="number" formControlName="valueIncrement" min="1" [max]="maxLevelGauge">
+    <label>Niveau de départ</label>
+    <input type="number" formControlName="startLevel" min="0" [max]="maxLevelGauge">
+</form>
+
+<div class="main-div">
+    <!-- GAUGE -->
+    <mwl-gauge class="gauge" [max]="maxLevelGauge" [value]="(levelGauge$ | async) ?? 0"></mwl-gauge>
+    <!-- LEVEL BUTTONS -->
+    <div class="buttons">
+        <button class="button button-up" (click)="levelUp()">+</button>
+        <button class="button button-down" (click)="levelDown()">-</button>
+    </div>
+    <!-- MESSAGES -->
+    <ng-container [ngSwitch]="levelGauge$ | async">
+        <span class="message" *ngSwitchCase="0">Niveau minimum</span>
+        <span class="message" *ngSwitchCase="maxLevelGauge">Niveau maximum atteint !</span>
+    </ng-container>
+</div>
+

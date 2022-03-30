@@ -1,0 +1,42 @@
+label
+  padding: 10px
+  
+.main-div
+  display: flex
+  flex-direction: column
+  width: 35%
+  margin: 0 auto
+
+  .gauge
+    display: block
+
+  .buttons
+    display: flex
+    justify-content: space-evenly
+
+    .button 
+      border-radius:28px
+      color:#ffffff
+      font-size:31px
+      cursor: pointer
+      width: 30%
+      
+      &-up
+        text-shadow:0px 1px 0px #2f6627
+        border:1px solid #18ab29
+        background-color:#44c767
+        
+        &:hover 
+          background-color:#5cbf2a
+      
+      &-down
+        text-shadow:0px 1px 0px #682626
+        border:1px solid #ab1919
+        background-color:#c74545
+
+        &:hover 
+          background-color:#bd2a2a
+
+  .message
+    margin: 0 auto
+    padding: 10px
